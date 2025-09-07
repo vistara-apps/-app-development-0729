@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
-import { useAccount } from 'wagmi';
 import { User, ReadingList, Genre, AMA, Book } from '../services/api';
-import { userAPI, readingListAPI, genreAPI, amaAPI } from '../services/api';
+import { userAPI, readingListAPI, genreAPI, amaAPI, bookAPI } from '../services/api';
 
 // Types
 interface AppState {
@@ -176,7 +175,9 @@ interface AppProviderProps {
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  const { address, isConnected } = useAccount();
+  // Mock wallet connection for now
+  const address = null;
+  const isConnected = false;
 
   // Actions
   const actions = {

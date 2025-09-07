@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BookOpen, TrendingUp, Users, Calendar, Plus, Heart, Star, BarChart3 } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import ReadingLists from './components/ReadingLists';
@@ -61,7 +60,9 @@ function App() {
               <Plus className="w-4 h-4" />
               <span className="hidden sm:inline">New List</span>
             </button>
-            <ConnectButton />
+            <button className="bg-accent hover:bg-accent/90 px-4 py-2 rounded-lg text-white font-medium transition-colors">
+              Connect Wallet
+            </button>
           </div>
         </div>
       </header>
