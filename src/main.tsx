@@ -20,6 +20,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { AppProvider } from './contexts/AppContext'
+import { validateEnvironment } from './config/environment'
+
+// Validate environment variables on startup
+validateEnvironment();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -30,7 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     })}>
       <QueryClientProvider client={new QueryClient()}>
         <RainbowKitProvider>
-          <App />
+          <AppProvider>
+            <App />
+          </AppProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
